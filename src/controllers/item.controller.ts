@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { ListInventoryDto, UpdateItemDto } from '@dtos/item.dto';
+import { CreateItemDto, ListInventoryDto, UpdateItemDto } from '@dtos/item.dto';
 import itemsService from '@services/items.service';
 import { Inventory, Item } from '@/interfaces/item.interface';
 import { ListInventoryResponse } from '@/responses/item.responses';
@@ -41,7 +41,7 @@ class ItemController {
 
   public createItem = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const itemData: UpdateItemDto = req.body;
+      const itemData: CreateItemDto = req.body;
       if (itemData.username != 'admin') {
         res.status(401).json('Unauthorized');
       }

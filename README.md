@@ -1,5 +1,7 @@
 # shopping
 
+This API enables you to manage and maintain for physical shop by setting prices, inventory and managing shopping carts.
+
 ## Quick Start
 
 ```shell
@@ -18,3 +20,7 @@ Currently only test for items ares supported.
 ```shell
 npm run test:items
 ```
+
+## Coming Soon
+
+1. Shopping cart management

@@ -1,0 +1,47 @@
+# users API
+
+###
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+# Find All Items
+GET {{baseURL}}/item
+
+###
+# List inventory
+POST {{baseURL}}/item/listInventory
+Content-Type: application/json
+
+{
+    "username": "admin"
+}
+
+###
+# Add item
+POST {{baseURL}}/item
+Content-Type: application/json
+
+{ 
+    "username": "admin2", 
+    "item_id": "387",
+    "price": 3.20
+}
+
+###
+
+
+###
+# Edit User By Id
+PUT {{baseURL}}/item
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "item_id": "1",
+    "amount": 30
+}
+
+###
+# Del User By Id
+DELETE {{baseURL}}/users/1

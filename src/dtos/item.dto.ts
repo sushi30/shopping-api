@@ -1,4 +1,5 @@
-import { IsNumber, IsNumberString, IsString, IsOptional, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsNumber, IsNumberString, IsString, IsOptional, ValidateNested, Allow } from 'class-validator';
 
 export class CreateItemDto {
   @IsString()
@@ -27,7 +28,7 @@ export class UpdateItemDto {
   public add: number;
 }
 
-class ItemInventoryDto {
+export class ItemInventoryDto {
   @IsNumberString()
   public item_id: string;
 }
@@ -36,8 +37,7 @@ export class ListInventoryDto {
   @IsString()
   public username: string;
 
-  @IsOptional()
+  @Type(() => ItemInventoryDto)
   @ValidateNested()
   public items: ItemInventoryDto[];
 }
-

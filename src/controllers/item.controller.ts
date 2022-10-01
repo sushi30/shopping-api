@@ -24,7 +24,9 @@ class ItemController {
 
       // TODO handle case for item ids
 
-      const items: Item[] = await this.itemService.listInventory();
+      const ids = listInventoryData.items?.map(item => Number.parseInt(item.item_id));
+
+      const items: Item[] = await this.itemService.listInventory(ids);
       const inventoryResponse: ListInventoryResponse = {
         items: items.map(item => ({
           item_id: item.id.toString(),

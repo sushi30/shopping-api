@@ -18,7 +18,7 @@ class ItemRoute implements Routes {
     this.router.post(`${this.path}/listInventory`, validationMiddleware(ListInventoryDto, 'body'), this.itemController.listInventory);
     // this.router.get(`${this.path}/:id(\\d+)`, this.itemController.getUserById);
     this.router.post(`${this.path}`, validationMiddleware(UpdateItemDto, 'body'), this.itemController.createItem);
-    this.router.put(`${this.path}`, validationMiddleware(UpdateItemDto, 'body', true), this.itemController.updateItem);
+    this.router.put(`${this.path}`, validationMiddleware(UpdateItemDto, 'body'), this.itemController.updateItem);
     // this.router.delete(`${this.path}/:id(\\d+)`, this.itemController.deleteUser);
   }
 }

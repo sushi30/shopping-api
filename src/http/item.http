@@ -18,6 +18,16 @@ Content-Type: application/json
 }
 
 ###
+# List inventory with ids
+POST {{baseURL}}/item/listInventory
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "items": [{"item_id" :"1"},{"item_id" :"2"}]
+}
+
+###
 # Add item
 POST {{baseURL}}/item
 Content-Type: application/json

@@ -12,7 +12,10 @@ class ItemsService {
     return users;
   }
 
-  public async listInventory(): Promise<Item[]> {
+  public async listInventory(ids: number[]): Promise<Item[]> {
+    if (ids) {
+      return this.items.filter(item => ids.includes(item.id));  
+    }
     return this.items
   }
 

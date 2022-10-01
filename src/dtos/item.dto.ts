@@ -39,5 +39,5 @@ export class ListInventoryDto {
 
   @Type(() => ItemInventoryDto)
   @ValidateNested()
-  public items: ItemInventoryDto[];
+  public items?: ItemInventoryDto[];
 }

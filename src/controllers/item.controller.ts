@@ -20,9 +20,7 @@ class ItemController {
   public listInventory = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const listInventoryData: ListInventoryDto = req.body;
-      if (listInventoryData.username != 'admin') {
-        res.status(401).json('Unauthorized');
-      }
+      if (listInventoryData.username != 'admin') res.sendStatus(401);
 
       // TODO handle case for item ids
 
@@ -42,9 +40,7 @@ class ItemController {
   public createItem = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const itemData: CreateItemDto = req.body;
-      if (itemData.username != 'admin') {
-        res.status(401).json('Unauthorized');
-      }
+      if (itemData.username != 'admin') res.sendStatus(401);
       const createItemData: Item = await this.itemService.createItem(itemData);
 
       res.status(200).json({ data: createItemData, message: 'created/updated' });
@@ -57,9 +53,7 @@ class ItemController {
     try {
       const itemData: UpdateItemDto = req.body;
       const itemId = Number.parseInt(itemData.item_id);
-      if (itemData.username != 'admin') {
-        res.status(401).json('Unauthorized');
-      }
+      if (itemData.username != 'admin') res.sendStatus(401);
       let updateItemData: Item;
       if (itemData.add) {
         updateItemData = await this.itemService.addInventory(itemId, itemData.add);

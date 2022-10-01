@@ -1,7 +1,7 @@
 import request from 'supertest';
 import App from '@/app';
 import ItemRoute from '@/routes/item.route';
-import { ListInventoryDto } from '@/dtos/item.dto';
+import { CreateItemDto, ListInventoryDto } from '@/dtos/item.dto';
 
 afterAll(async () => {
   await new Promise<void>(resolve => setTimeout(() => resolve(), 500));
@@ -18,7 +18,7 @@ describe('Testing Items', () => {
   });
 
   describe('[POST] /item/listInventory', () => {
-    it('response statusCode 200 / username is not admin', () => {
+    it('response statusCode 200 / initial inventory ', () => {
       const itemRoutes = new ItemRoute();
       const app = new App([itemRoutes]);
       const itemData: ListInventoryDto = {
@@ -30,6 +30,19 @@ describe('Testing Items', () => {
         .expect(200)
         .expect(res => !!res.body.items)
         .expect(res => res.body.items.length == 4);
+    });
+  });
+
+  describe('[POST] /item', () => {
+    it('response statusCode 200 / item is added', () => {
+      const itemRoutes = new ItemRoute();
+      const app = new App([itemRoutes]);
+      const itemData: CreateItemDto = {
+        username: 'admin',
+        item_id: '50',
+        price: 3,
+      };
+      return request(app.getServer()).post(`${itemRoutes.path}`).send(itemData).expect(200);
     });
   });
 });

@@ -1,6 +1,6 @@
-import { CreateItemDto, UpdateItemDto } from '@dtos/item.dto';
+import { CreateItemDto } from '@dtos/item.dto';
 import { HttpException } from '@exceptions/HttpException';
-import { Inventory, Item } from '@interfaces/item.interface';
+import { Item } from '@interfaces/item.interface';
 import itemModel from '@models/items.model';
 import { isEmpty } from '@utils/util';
 
@@ -14,9 +14,14 @@ class ItemsService {
 
   public async listInventory(ids: number[]): Promise<Item[]> {
     if (ids) {
-      return this.items.filter(item => ids.includes(item.id));  
+      return this.items.filter(item => ids.includes(item.id));
     }
-    return this.items
+    return this.items;
+  }
+
+  public async getItemOrNull(id: number): Promise<Item | null> {
+    const findItem: Item = this.items.find(item => item.id === id);
+    return findItem ? findItem : null;
   }
 
   public async updateItemPrice(id: number, price: number): Promise<Item> {

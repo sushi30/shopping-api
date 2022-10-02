@@ -7,9 +7,10 @@ import IndexRoute from '@routes/index.route';
 import UsersRoute from '@routes/users.route';
 import validateEnv from '@utils/validateEnv';
 import ItemRoute from './routes/item.route';
+import CartRoute from './routes/cart.route';
 
 validateEnv();
 
-const app = new App([new IndexRoute(), new UsersRoute(), new ItemRoute(), new AuthRoute()]);
+const app = new App([new IndexRoute(), new UsersRoute(), new ItemRoute(), new CartRoute(), new AuthRoute()]);
 
 app.listen();

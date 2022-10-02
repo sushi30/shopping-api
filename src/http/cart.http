@@ -1,0 +1,21 @@
+# users API
+
+###
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+# Get specific cart
+GET {{baseURL}}/cart/alice
+
+###
+# Add item to cart
+POST {{baseURL}}/cart/addItem
+Content-Type: application/json
+
+{
+    "username": "alice",
+	"quantity": 5,
+    "item_id": "3"
+}
+

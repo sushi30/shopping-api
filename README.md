@@ -15,10 +15,8 @@ You can engage with the application according to the specification.
 
 ## Running Tests
 
-Currently only test for items ares supported.
-
 ```shell
-npm run test:items
+npm run test
 ```
 
 ## Roadmap

@@ -11,7 +11,10 @@ class CartService {
 
   public async addItemToCart(username: string, id: number, quantity: number): Promise<Cart> {
     let updatedCart = this.carts.find(cart => cart.username === username);
-    if (!updatedCart) this.newCart(username);
+    if (!updatedCart) { 
+      updatedCart = this.newCart(username);
+      this.carts.push(updatedCart);
+    } 
     let updatedItem = updatedCart.items.find(item => item.id === id);
     if (!updatedItem) {
       updatedItem = { id, quantity: 0 };

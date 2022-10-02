@@ -30,3 +30,14 @@ Content-Type: application/json
     "item_id": "2"
 }
 
+###
+# Add new item to cart
+POST {{baseURL}}/cart/addItem
+Content-Type: application/json
+
+{
+    "username": "charlie",
+	"quantity": 1,
+    "item_id": "2"
+}
+

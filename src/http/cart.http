@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
     "username": "alice",
-	"quantity": 5,
-    "item_id": "3"
+	"quantity": 1,
+    "item_id": "1"
 }
 

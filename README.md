@@ -21,6 +21,11 @@ Currently only test for items ares supported.
 npm run test:items
 ```
 
-## Coming Soon
+## Roadmap
 
-1. Shopping cart management
+- [x] Set item
+- [x] Update item
+- [x] Get inventory
+- [x] Add item to cart
+- [ ] Remove item from cart
+- [ ] Purchase cart

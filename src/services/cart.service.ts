@@ -14,18 +14,11 @@ class CartService {
     if (!updatedCart) this.newCart(username);
     let updatedItem = updatedCart.items.find(item => item.id === id);
     if (!updatedItem) {
-      updatedItem = { id, quantity: 0 }
+      updatedItem = { id, quantity: 0 };
       updatedCart.items.push(updatedItem);
-    };
+    }
     updatedItem.quantity += quantity;
-    updatedCart.items = updatedCart.items.map(item =>
-      item.id !== id
-        ? item
-        : {
-            ...item,
-            quantity: item.quantity + quantity,
-          },
-    );
+    updatedCart.items = updatedCart.items.map(item => (item.id !== id ? item : updatedItem));
     this.carts = this.carts.map(cart => (cart.username !== username ? cart : updatedCart));
     return updatedCart;
   }
